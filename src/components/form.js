@@ -1,4 +1,4 @@
-import react ,{useState}from 'react';
+import {useState}from 'react';
 
 export default function Form(props) {
     const [text,setText] = useState('');
@@ -47,16 +47,16 @@ export default function Form(props) {
             <div className="mb-3">
                 <textarea className={`form-control text-${props.mode==='light'?'dark':'light'}`}  value={text} onChange = {handlechange} style = {{backgroundColor : changetextareamode(props.mode) }} id="myBox" rows="6"></textarea>
             </div>
-            <button className="btn btn-primary mx-2" onClick={handleUpperCase}>Convert to Upper Case</button>
-            <button className="btn btn-primary mx-2" onClick={handlelowerCase}>Convert to Lower Case</button>
-            <button className="btn btn-primary mx-2" onClick={handlerandomtext}>Generate Random Text</button>
-            <button className="btn btn-primary mx-2" onClick={handlespace}>Remove Extra Space</button>
-            <button className="btn btn-danger mx-2" onClick={clearText}>Clear Text</button>
+            <button className="btn btn-primary mx-2 my-1" disabled={text.length===0} onClick={handleUpperCase}>Convert to Upper Case</button>
+            <button className="btn btn-primary mx-2 my-1" disabled={text.length===0} onClick={handlelowerCase}>Convert to Lower Case</button>
+            <button className="btn btn-primary mx-2 my-1" onClick={handlerandomtext}>Generate Random Text</button>
+            <button className="btn btn-primary mx-2 my-1" disabled={text.length===0} onClick={handlespace}>Remove Extra Space</button>
+            <button className="btn btn-danger mx-2 my-1" disabled={text.length===0} onClick={clearText}>Clear Text</button>
         </div>
         <div className={`container my-3 text-${props.mode === 'light'?'dark':'light'}`} >
             <h2>Text Summery</h2>
-            <p>{text.split(" ").length-1} Words and {text.length} Charecters</p>
-            <p>{0.008*(text.split(" ").length-1)} average minutes required to read the text </p>
+            <p>{text.split(/\s+/).filter((ele)=>{return ele.length!==0}).length} Words and {text.length} Charecters</p>
+            <p>{0.008*(text.split(" ").filter((ele)=>{return ele.length!==0}).length)} average minutes required to read the text </p>
             <h3>Preview</h3>
             <p>{text}</p>
         </div>

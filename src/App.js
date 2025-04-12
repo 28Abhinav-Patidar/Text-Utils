@@ -43,12 +43,12 @@ const sendalert = (message , text) =>{
        <Navbar Title="TextUtils" sendalert={sendalert} About="About TextUtils"  mode={mode} changemode={changemode}/>
        <Alert alert={alert}/> 
        <div className='container my-3'>
-       {/* <Routes>
-              <Route path="/about" element={<About mode={mode}/>}/> */}
-              {/* <Route path="/" element={Form}*/<Form sendalert={sendalert} heading = "Enter The Text Here" mode={mode}  changemode={changemode}/>}
+       {/* <Routes> */}
+              {/* <Route path="/about" element={<About mode={mode}/>}/>
+              <Route path="/" element={} /> */}<Form sendalert={sendalert} heading = "Enter The Text Here" mode={mode}  changemode={changemode}/>
         {/* </Routes> */}
         </div>  
-      {/* </Router> */}
+       {/* </Router>  */}
     </>
   );
 }
